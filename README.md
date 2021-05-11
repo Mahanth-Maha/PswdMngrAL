@@ -10,8 +10,7 @@ then the software it self takes the mail and password , opens a browser tab and 
 
 ### PHASES
 
-* Phase 0 : Discussing 
-* Phase 1 : CLI interface
+* Phase 1 : CLI interface < In Progess >
 * Phase 2 : Combining all together
 * Phase 3 : Developing interactive GUI to CLI Program
 * Phase 4 : Testing
