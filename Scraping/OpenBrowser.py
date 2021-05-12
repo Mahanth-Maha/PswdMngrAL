@@ -1,5 +1,6 @@
 import webbrowser
 import time
+import PasswordTyper
 
 def get_Address(addr):
   if(addr != None):
@@ -13,5 +14,7 @@ def open_browser(Address_Of_Login_Page):
 
 if __name__ == '__main__':
   open_browser(get_Address(None))
-  time.sleep(1)
+  time.sleep(6)
+  PasswordTyper.in_Username("username@mail.com")
+  PasswordTyper.in_Password("P@$$w0rd")
   

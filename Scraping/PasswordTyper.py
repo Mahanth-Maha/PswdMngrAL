@@ -18,6 +18,6 @@ def in_Password(pswd):
     time.sleep(2)
     keyboard.press(Key.enter)
     keyboard.release(Key.enter)
-if __name__ == __main__:
+if __name__ == '__main__':
     in_Username("username@mail.com")
     in_Password("P@$$w0rd")
