@@ -119,8 +119,7 @@ def LogIn():
             Run = True
             print("\t\t\t-> Welcome " + UserSession.get_username() + " <-")
             while (Run):
-                option = input(
-                    "\nOptions Avaliable\n\t1. Insert New Password \n\t2. Retrive a Password \n\t3. List Avaliable Passwords For\n\t4. Delete A Saved Password\n\t5.Delete All Saved Passwords\n\t6. Delete Master Password\n\t0. Exit\nSelect an Option :")
+                option = input("\nOptions Avaliable\n\t1. Insert New Password \n\t2. Retrive a Password \n\t3. List Avaliable Passwords For\n\t4. Delete A Saved Password\n\t5.Delete All Saved Passwords\n\t6. Delete Master Password\n\t0. Exit\nSelect an Option :")
                 if (int(option) == 1):
                     User.New_Record()
                 elif (int(option) == 2):
