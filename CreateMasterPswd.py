@@ -80,12 +80,12 @@ class MasterPasswordGen:
             username = input("Enter User-Name :")
             Hasher = RSA()
             hash_generated = Hasher.PasswordHasher(password_1)
-            print(hash_generated)
+            #print(hash_generated)
             HashDB = MasterPasswordDataBase()
             HashDB.CreateDB()
             HashDB.InsertInto(hash_generated, username)
         else:
-            print("Sorry password not matched Try Again")
+            print("\nSorry password not matched Try Again")
 
     def DeleteMP(self):
         print(
