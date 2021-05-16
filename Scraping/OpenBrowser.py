@@ -6,7 +6,7 @@ def get_Address(addr):
   if(addr != None):
     AddressOfLoginPage = addr
   else:
-    AddressOfLoginPage = "https://login.salesforce.com/"
+    AddressOfLoginPage = "https://www.facebook.com/login.php"
   return AddressOfLoginPage
     
 def open_browser(Address_Of_Login_Page):
@@ -17,4 +17,3 @@ if __name__ == '__main__':
   time.sleep(6)
   PasswordTyper.in_Username("username@mail.com")
   PasswordTyper.in_Password("P@$$w0rd")
-  
