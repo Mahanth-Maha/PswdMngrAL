@@ -1,4 +1,5 @@
 # PswdMngrAL
+
 Password Manager Auto Login with Encryption 
 
 ## About
@@ -8,9 +9,9 @@ then the software it self takes the mail and password , opens a browser tab and 
 
 ## Status : NOT YET IMPLEMENTED
 
-### PHASES
+#### PHASES
 
-* Phase 1 : CLI interface < In Progess >
+* _Phase 1 : CLI interface < In Progess >_
 * Phase 2 : Combining all together
 * Phase 3 : Developing interactive GUI to CLI Program
 * Phase 4 : Testing

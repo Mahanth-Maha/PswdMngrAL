@@ -1,11 +1,12 @@
 import time
 import webbrowser
-from getpass import getpass
+# from getpass import getpass
 
 from pynput.keyboard import Key, Controller
 from selenium import webdriver
 
 keyboard = Controller()
+
 
 class OpenBrowser:
     def get_Address(self, addr):
@@ -122,37 +123,47 @@ class AutoFill:
         keyboard.release(Key.enter)
         return 0
 
-    sites = ["FaceBook", "Twitter", "Instagram", "Google"]
 
-    def FillIn(self, site, username, password):
-        if site in self.sites:
-            c = self.sites.index(site)
-        else:
-            c = 5
-        if (c == 1):
-            self.Site_FaceBook(username, password)
-        elif (c == 2):
-            self.Site_Twitter(username, password)
-        elif (c == 3):
-            self.Site_Instagram(username, password)
-        elif (c == 4):
-            self.Site_Google(username, password)
-        elif (c == 5):
-            Addr = site
-            OpenBrowser.open_browser(OpenBrowser.get_Address(Addr))
-            time.sleep(6)
-            PasswordTyper.in_Username(username)
-            PasswordTyper.in_Password(password)
-        return 0
+
+sites = ["FaceBook", "Twitter", "Instagram", "Google"]
+siteAddr = dict(FaceBook='https://www.facebook.com/', Twitter='https://twitter.com/login/',
+                    Instagram='https://www.instagram.com/accounts/login/',
+                    Google='https://accounts.google.com/Login')
+def FillIn( site, username, password_in):
+    if site in sites:
+        c = sites.index(site)
+        print(c)
+    else:
+        c = 5
+    A = AutoFill()
+    if (c == 1):
+        A.Site_FaceBook(username, password_in)
+    elif (c == 2):
+        A.Site_Twitter(username, password_in)
+    elif (c == 3):
+        A.Site_Instagram(username, password_in)
+    elif (c == 4):
+        A.Site_Google(username, password_in)
+    elif (c == 5):
+        Separate_Browser = OpenBrowser()
+        Addr = Separate_Browser.get_Address(site)
+        Separate_Browser.open_browser(Addr)
+        time.sleep(6)
+        PasswordSender = PasswordTyper()
+        PasswordSender.in_Username(username)
+        PasswordSender.in_Password(password_in)
+    return 0
+
 
 if __name__ == '__main__':
-    try:
-        c = int(input(
-            "Select one of the Site For Auto Login :\n1.FaceBook\n2.Twitter\n3.Instagram\n4.Google\n5.Others\nEnter A Choice : "))
-        username = input("Enter in your username: ")
-        password = getpass("Enter your password: ")
-        A = AutoFill
-        A.FillIn("https://www.instagram.com/accounts/login/",username,password)
-    except:
-        #print("Not an Integer")
-        input("Invalid input Press Any Key to exit...")
+    # try:
+    c = int(input(
+        "Select one of the Site For Auto Login :\n1.FaceBook\n2.Twitter\n3.Instagram\n4.Google\n5.Others\nEnter A Choice : "))
+    username = input("Enter in your username: ")
+    # password = getpass("Enter your password: ")
+    password = "fghjkl;"
+    # A.FillIn("https://www.instagram.com/accounts/login/",username,password)
+    FillIn( site= "Google", username=username,password_in=password)
+    # except:
+    # print("Not an Integer")
+    input("Invalid input Press Any Key to exit...")
