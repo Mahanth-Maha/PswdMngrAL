@@ -14,7 +14,7 @@ class MasterPasswordDataBase:
         if len(already_exists) == 0:
             cur.execute("CREATE TABLE MasterPassword(Id INT Primary Key, User TEXT,Hash TEXT)")
         elif len(already_exists) == 1:
-            #print("DB Created Already Exist")
+            # print("DB Created Already Exist")
             pass
         else:
             for i in already_exists:
@@ -26,12 +26,12 @@ class MasterPasswordDataBase:
         all_ids = self.AllIdsInTable()
         if len(all_ids) == 0:
             SQL = "INSERT INTO MasterPassword VALUES(1,'" + username + "','" + hash + "')"
-            #print(SQL)
+            # print(SQL)
             cur.execute(SQL)
-            #print("Row inserted")
+            # print("Row inserted")
             self.con.commit()
         else:
-            #print("ALready Stored")
+            # print("ALready Stored")
             pass
 
     def AllIdsInTable(self):
@@ -62,9 +62,11 @@ class MasterPasswordDataBase:
         cur.execute('DELETE FROM MasterPassword')
         self.con.commit()
 
+
 class RSA:
-    def PasswordHasher(self,password):
+    def PasswordHasher(self, password):
         return hashlib.sha256(password.encode()).hexdigest()
+
 
 class MasterPasswordGen:
 
@@ -74,41 +76,46 @@ class MasterPasswordGen:
               "* You can only login in with Master password Created \n\t* Password will not visible as you type\n\tDont give spaces in end or start unnecessarly")
         password_1 = getpass("Enter You Master PassWord :")
         password_2 = getpass("Enter Again :")
-        if(password_1 == password_2):
+        if (password_1 == password_2 and password_1 != ''):
             username = input("Enter User-Name :")
             Hasher = RSA()
             hash_generated = Hasher.PasswordHasher(password_1)
             print(hash_generated)
             HashDB = MasterPasswordDataBase()
             HashDB.CreateDB()
-            HashDB.InsertInto(hash_generated,username)
+            HashDB.InsertInto(hash_generated, username)
         else:
             print("Sorry password not matched Try Again")
+
     def DeleteMP(self):
-        print("\nMasterPassword - A single Password for All Passwords \n\nWARNING : If you delete this You will lost All saved passwords also")
+        print(
+            "\nMasterPassword - A single Password for All Passwords \n\nWARNING : If you delete this You will lost All saved passwords also")
         agree = input("\n\nDelete Master Password (Y/N) :")
-        if agree in ('Y','Yes','YES','y','yes','YEs','y'):
+        if agree in ('Y', 'Yes', 'YES', 'y', 'yes', 'YEs', 'y'):
             HashDB = MasterPasswordDataBase()
             HashDB.DeleteEntry()
+            return 0
+        return 1
 
-
-    def Verify_Password(self,PasswordReEntry):
+    def Verify_Password(self, PasswordReEntry):
         Hasher = RSA()
         hash_generated = Hasher.PasswordHasher(PasswordReEntry)
         HashDB = MasterPasswordDataBase()
         in_table = HashDB.FetchHash()
         if len(in_table) != 0:
             PassHash, UserName = in_table
-            if(hash_generated == PassHash):
+            if (hash_generated == PassHash):
                 return 0
             else:
                 return 1
+
     def If_MasterPassNotCreated(self):
         HashDB = MasterPasswordDataBase()
         in_table = HashDB.FetchHash()
         if len(in_table) != 0:
             return 0
         return 1
+
     def get_username(self):
         HashDB = MasterPasswordDataBase()
         in_table = HashDB.FetchHash()
@@ -116,19 +123,20 @@ class MasterPasswordGen:
             PassHash, UserName = in_table
         return UserName
 
+
 if __name__ == '__main__':
-    #Hasher = RSA()
-    #hash_generated = Hasher.PasswordHasher("Maha3")
+    # Hasher = RSA()
+    # hash_generated = Hasher.PasswordHasher("Maha3")
     UserSession = MasterPasswordGen()
     password_3 = getpass("Enter MP :")
     print(UserSession.Verify_Password(password_3))
-    #k = MasterPasswordDataBase()
-    #k.CreateDB()
-    #k.InsertInto(hash_generated,"maha")
-    #print(k.tables_in_sqlite_db())
-    #in_table =k.FetchHash()
-    #if len(in_table) !=0:
+    # k = MasterPasswordDataBase()
+    # k.CreateDB()
+    # k.InsertInto(hash_generated,"maha")
+    # print(k.tables_in_sqlite_db())
+    # in_table =k.FetchHash()
+    # if len(in_table) !=0:
     #    PassHash, UserName = in_table
     #    print(PassHash,UserName)
-    #k.DeleteEntry()
+    # k.DeleteEntry()
     input()

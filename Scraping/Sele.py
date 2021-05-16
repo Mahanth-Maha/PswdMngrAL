@@ -1,9 +1,10 @@
 import time
 import webbrowser
-# from getpass import getpass
 
 from pynput.keyboard import Key, Controller
 from selenium import webdriver
+
+# from getpass import getpass
 
 keyboard = Controller()
 
@@ -124,12 +125,13 @@ class AutoFill:
         return 0
 
 
-
 sites = ["FaceBook", "Twitter", "Instagram", "Google"]
 siteAddr = dict(FaceBook='https://www.facebook.com/', Twitter='https://twitter.com/login/',
-                    Instagram='https://www.instagram.com/accounts/login/',
-                    Google='https://accounts.google.com/Login')
-def FillIn( site, username, password_in):
+                Instagram='https://www.instagram.com/accounts/login/',
+                Google='https://accounts.google.com/Login')
+
+
+def FillIn(site, username, password_in):
     if site in sites:
         c = sites.index(site)
         print(c)
@@ -163,7 +165,7 @@ if __name__ == '__main__':
     # password = getpass("Enter your password: ")
     password = "fghjkl;"
     # A.FillIn("https://www.instagram.com/accounts/login/",username,password)
-    FillIn( site= "Google", username=username,password_in=password)
+    FillIn(site="Google", username=username, password_in=password)
     # except:
     # print("Not an Integer")
     input("Invalid input Press Any Key to exit...")
