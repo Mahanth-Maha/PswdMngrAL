@@ -7,7 +7,7 @@ class DataBaseRecords:
         return (password,site)
 
     def insert_record(cls, Username, Password, Site):
-        pass
+        return 1
 
     def get_list_of_records(self,):
         out = {'username1':'site1','username2':'site2','username3':'site3','username4':'site4'}
