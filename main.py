@@ -124,7 +124,7 @@ def LogIn():
             Tried += 1
             if (Tried >= 3):
                 Try = False
-                input("\n\tIncorret trails Limit Exceeded...Bye (Press Enter)")
+                print("\n\tIncorret trails Limit Exceeded...Bye")
             else:
                 print("\t\tINCORRECT PASSWORD\n\nTrails Left :", 3 - Tried, "\n")
 
