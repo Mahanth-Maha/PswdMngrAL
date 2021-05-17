@@ -20,9 +20,7 @@ class PasswordManager:
     # noinspection PyArgumentList
     def New_Record(self):
         try:
-            S = int(
-                input(
-                    "Pre Available Sites \n1.FaceBook\n2.Twitter\n3.Instagram\n4.Google\n5.Other Site\n Select a Site:"))
+            S = int(input("Pre Available Sites \n1.FaceBook\n2.Twitter\n3.Instagram\n4.Google\n5.Other Site\n Select a Site:"))
             if S in (1, 2, 3, 4):
                 Site = self.sites[S - 1]
                 address_of_site = self.siteAddr[Site]
@@ -44,8 +42,7 @@ class PasswordManager:
     def Get_Record(self):
         Err = True
         try:
-            S = int(input(
-                "\nPre Available Sites \t1.FaceBook\t2.Twitter\t3.Instagram\t4.Google\t5.Other Site\n Select a Site:"))
+            S = int(input("\nPre Available Sites \t1.FaceBook\t2.Twitter\t3.Instagram\t4.Google\t5.Other Site\n Select a Site:"))
             if S in (1, 2, 3, 4):
                 Site = self.sites[S - 1]
                 address_of_site = self.siteAddr[Site]
@@ -64,8 +61,7 @@ class PasswordManager:
                 Err = False
             while (Err):
                 try:
-                    select = int(input(
-                        "\n1 : Copy Password to clipboard \n2 : Open in browser\n3 : Discard Password \nEnter (1/2/3) :"))
+                    select = int(input("\n1 : Copy Password to clipboard \n2 : Open in browser\n3 : Discard Password \nEnter (1/2/3) :"))
                     Password = Password.decode('UTF-8')
                     if (select == 1):
                         r = Tk()
@@ -99,8 +95,7 @@ class PasswordManager:
 
     def del_one_record(self):
         Username = input("Enter the ID / Mail / Username :")
-        S = int(input(
-            "\nPre Available Sites \t1.FaceBook\t2.Twitter\t3.Instagram\t4.Google\t5.Other Site\n Select a Site:"))
+        S = int(input("\nPre Available Sites \t1.FaceBook\t2.Twitter\t3.Instagram\t4.Google\t5.Other Site\n Select a Site:"))
         if S in (1, 2, 3, 4):
             Site = self.sites[S - 1]
             address_of_site = self.siteAddr[Site]
@@ -124,8 +119,7 @@ def LogIn():
             Run = True
             print("\t\t\t-> Welcome " + UserSession.get_username() + " <-")
             while (Run):
-                option = input(
-                    "\nOptions Avaliable\n\t1. Insert New Password \n\t2. Retrive a Password \n\t3. List Avaliable Passwords For\n\t4. Delete A Saved Password\n\t5.Delete All Saved Passwords\n\t6. Delete Master Password\n\t0. Exit\nSelect an Option :")
+                option = input("\nOptions Avaliable\n\t1. Insert New Password \n\t2. Retrive a Password \n\t3. List Avaliable Passwords For\n\t4. Delete A Saved Password\n\t5.Delete All Saved Passwords\n\t6. Delete Master Password\n\t0. Exit\nSelect an Option :")
                 if (int(option) == 1):
                     User.New_Record()
                 elif (int(option) == 2):
