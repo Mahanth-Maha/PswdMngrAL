@@ -2,6 +2,8 @@ import hashlib
 import sqlite3 as lite
 from getpass import getpass
 
+import setup
+
 class MasterPasswordDataBase:
     def __init__(self):
         self.CreateDB()
@@ -71,6 +73,7 @@ class RSA:
 class MasterPasswordGen:
 
     def CreateMP(self):
+        setup.Install_dependencies()
         print("MasterPassword - A single Password for All Passwords \n\n"
               "--- Creating A Master Password ---\n\t* We can't Retrive Master Password if you lost it, so please not it down\n\t"
               "* You can only login in with Master password Created \n\t* Password will not visible as you type\n\tDont give spaces in end or start unnecessarly")
@@ -121,8 +124,8 @@ class MasterPasswordGen:
         in_table = HashDB.FetchHash()
         if len(in_table) != 0:
             PassHash, UserName = in_table
-        return UserName
-
+            return UserName
+        return None
 
 if __name__ == '__main__':
     # Hasher = RSA()
