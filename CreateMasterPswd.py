@@ -73,7 +73,7 @@ class RSA:
 class MasterPasswordGen:
 
     def CreateMP(self):
-        setup.Install_dependencies()
+        #setup.Install_dependencies()
         print("MasterPassword - A single Password for All Passwords \n\n"
               "--- Creating A Master Password ---\n\t* We can't Retrive Master Password if you lost it, so please not it down\n\t"
               "* You can only login in with Master password Created \n\t* Password will not visible as you type\n\tDont give spaces in end or start unnecessarly")
