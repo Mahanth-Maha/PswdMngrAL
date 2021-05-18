@@ -18,11 +18,11 @@ A Software for Windows OS (Can also run in Mac OS and Linux without AutoFill) wh
 
 ### Windows OS
 
-Now only PasswordManager_v1.2_Win64.exe file is needed , No Need of python or any dependencies , you can just run the exe file then create a Master Password for all of your passwords and you are good to GO . find PasswordManager_v1.2_Win64.exe below
+Now only [PasswordManager_v1.2_Win64.exe](https://github.com/Mahanth-Maha/PswdMngrAL/releases/download/v1.2/PasswordManager_v1.2_Win64.exe) file is needed , No Need of python or any dependencies , you can just run the exe file then create a Master Password for all of your passwords and you are good to GO . find PasswordManager_v1.2_Win64.exe [here](https://github.com/Mahanth-Maha/PswdMngrAL/releases/download/v1.2/PasswordManager_v1.2_Win64.exe)
 
 ### Linux OS 
 
-Find the PasswordManager_v1_2_deb execute-able file from assets and change permissions 
+Find the [PasswordManager_v1_2_deb](https://github.com/Mahanth-Maha/PswdMngrAL/releases/download/v1.2/PasswordManager_v1_2_deb) execute-able file from assets and change permissions 
 
 ``` chmod +x ./PasswordManager_v1_2_deb```
 
@@ -31,7 +31,7 @@ Find the PasswordManager_v1_2_deb execute-able file from assets and change permi
 
 ### Mac OS
 
-For Mac OS Users Find the python File `PasswordManager.py` in Directory `PswdMngrWithoutAL` and run it 
+For Mac OS Users Find the python File `PasswordManager.py` in [Directory](https://github.com/Mahanth-Maha/PswdMngrAL/tree/v1.2/PswdMngrWithoutAL) `PswdMngrWithoutAL` and run it 
 
 ## MASTER PASSWORD
 
