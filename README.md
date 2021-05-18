@@ -21,6 +21,7 @@ Completed - Command Line Interface
 Run Setup.py before staring main.py 
 
 OR copy this to terminal and execute
+	
 	pip install PyCryptodome selenium pynput
 
 ## Use
