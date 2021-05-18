@@ -94,7 +94,7 @@ class MasterPasswordGen:
         print(
             "\nMasterPassword - A single Password for All Passwords \n\nWARNING : If you delete this You will lost All saved passwords also")
         agree = input("\n\nDelete Master Password (Y/N) :")
-        if agree in ('Y', 'Yes', 'YES', 'y', 'yes', 'YEs', 'y'):
+        if agree in ('Y', 'Yes', 'YES', 'y', 'yes'):
             HashDB = MasterPasswordDataBase()
             HashDB.DeleteEntry()
             return 0
