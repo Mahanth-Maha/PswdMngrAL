@@ -8,10 +8,12 @@ A Software for Windows OS which stores mail and Password with encryption. When U
 credentials he just need to open software and unlock it then the software it self takes the mail and password , opens a
 browser tab and autofills the credentials and login is performed automatically
 
-## Status : Phase 2 Completed - Maha
+## Status : Completed - Command Line Interface
 
-### PHASES
+## Requirements
 
-* Phase 1 : CLI interface < In Progess >
-* Phase 2 : Combining all together
-* Phase 3 : Testing
+  * Programming Language : Python , SQLite
+	* Operating System : Windows , Mac OS , or Linux (which supports python3)
+	* Dependencies : Python Modules - PyCryptodome , Selenium , Pynput 
+  
+
