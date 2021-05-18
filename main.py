@@ -61,21 +61,22 @@ class PasswordManager:
                 Err = False
             while (Err):
                 try:
-                    select = int(input("\n1 : Copy Password to clipboard \n2 : Open in browser\n3 : Discard Password \nEnter (1/2/3) :"))
+                    select = int(input("\n1 : Copy Password to Terminal \n2 : Open in browser\n3 : Discard Password \nEnter (1/2/3) :"))
                     Password = Password.decode('UTF-8')
                     if (select == 1):
-                        r = Tk()
-                        r.withdraw()
-                        r.clipboard_clear()
-                        r.clipboard_append(Password)
-                        r.update()
-                        r.destroy()
+                        #r = Tk()
+                        #r.withdraw()
+                        #r.clipboard_clear()
+                        #r.clipboard_append(Password)
+                        #r.update()
+                        #r.destroy()
                         print('Password : ', Password)
                         Err = False
                     elif (select == 2):
                         Sele.FillIn(Site, Username, Password)
                         Err = False
                     elif (select == 3):
+                        Password = None
                         Err = False
                     else:
                         print("invalid Input")
