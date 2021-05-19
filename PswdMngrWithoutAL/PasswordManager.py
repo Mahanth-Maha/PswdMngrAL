@@ -2,7 +2,8 @@ import sqlite3 as lite
 import hashlib
 import pyperclip
 import time
-import os
+import tkinter
+#import os
 from getpass import getpass
 from base64 import b64encode, b64decode
 from Cryptodome.Cipher import AES
@@ -116,7 +117,7 @@ class PasswordManager:
 
 
 
-def LogIn():
+def LogIn_CLI(UserSession):
     Tried = 0
     Try = True
     print("\n\t\tHello ",UserSession.get_username(),"\n\tWelcome back to Password Manager\n")
@@ -183,12 +184,13 @@ class MasterPasswordDataBase:
                 os.system("pip3 install selenium pynput PyCryptodome pyperclip")
             except:
                 print("\n\n\n\aConnect to Internet and Run Again\n\n\n")
-            cur.execute("CREATE TABLE MasterPassword(Id INT Primary Key, User TEXT,Hash TEXT)")
+            finally:
+                cur.execute("CREATE TABLE MasterPassword(Id INT Primary Key, User TEXT,Hash TEXT)")
         elif len(already_exists) == 1:
             # print("DB Created Already Exist")
             pass
         else:
-            for i in already_exists:
+            if i in already_exists:
                 cur.execute('DROP TABLE')
             self.CreateDB()
 
@@ -403,11 +405,32 @@ class AES_Salted_Crypted:
         return decrypted
 
 
-if __name__ == '__main__':
+def main() :
     UserSession = MasterPasswordGen()
     if (UserSession.If_MasterPassNotCreated() == 1):
         UserSession.CreateMP()
         print("MasterPassword Created Succesfully... Please Restart To use")
     else:
-        LogIn()
+        LogIn_CLI(UserSession)
     input("\n\n\n\tPress Any Key to Exit . . . ")
+
+def main_gui():
+    root = tkinter.Tk()
+    root.title("Password Manager")
+    root.geometry("900x600")
+    #label = tkinter.Label(root, text="Hello World !").pack()
+    MasterPassword_Frame(root)
+    root.mainloop()
+
+def MasterPassword_Frame(root):
+    #label = tkinter.Label(root,text="Haha")
+    Mp_display = tkinter.Label(root,text="Master Password").pack()
+    #Mp_display.place(x=430,y=200)
+    Mp_input = tkinter.Entry(root).pack()
+    #Mp_input.place(x=410,y=240)
+    #label.pack()
+    verify_btn = tkinter.Button(root,text = "Verify").pack()
+    #verify_btn.place(x=420,y = 280)
+
+if __name__ =='__main__':
+    main()
